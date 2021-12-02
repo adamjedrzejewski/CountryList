@@ -33,10 +33,10 @@ namespace CountryList
                 File.ReadAllText("countries.json")
             );
             var countriesGraph = CountriesGraph.CreateCountriesGraph(countriesConfig);
-            var countriesPathFinder = CountryListService.CreateCountriesPathFinder(countriesGraph, countriesConfig.StartingPoint);
+            var countriesPathFinder = CountryListService.CreateCountryListSerivce(countriesGraph, countriesConfig.StartingPoint);
 
             services.AddControllers();
-            services.AddTransient<ICountryListService, CountryListService>(
+            services.AddSingleton<ICountryListService, CountryListService>(
                 _ => countriesPathFinder
             );
         }

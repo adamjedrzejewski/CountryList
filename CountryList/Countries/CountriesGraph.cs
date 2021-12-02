@@ -7,12 +7,27 @@ namespace CountryList.Countries
 {
     public class CountriesGraph
     {
+        /// <summary>
+        /// Graph adjacency list
+        /// </summary>
         public Dictionary<string, HashSet<string>> AdjacencyList { get; } = new Dictionary<string, HashSet<string>>();
 
         private CountriesGraph() { }
+
+        /// <summary>
+        /// Check if country exists in graph
+        /// </summary>
+        /// <param name="countryCode"></param>
+        /// <returns>true if exists false otherwise</returns>
         public bool CountryExists(string countryCode)
             => AdjacencyList.ContainsKey(countryCode);
 
+        /// <summary>
+        /// Create new countries graph
+        /// </summary>
+        /// <param name="configuration"></param>
+        /// <returns>Countries graph</returns>
+        /// <exception cref="System.ArgumentException"></exception>
         public static CountriesGraph CreateCountriesGraph(CountriesConfiguration configuration)
         {
             var graph = new CountriesGraph();

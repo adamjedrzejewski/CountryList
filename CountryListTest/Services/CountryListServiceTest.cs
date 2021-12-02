@@ -20,7 +20,7 @@ namespace CountryListTest.Services
                 File.ReadAllText("countries.json")
             );
             var countriesGraph = CountriesGraph.CreateCountriesGraph(countriesConfig);
-            _countriesPathFinder = CountryListService.CreateCountriesPathFinder(countriesGraph, countriesConfig.StartingPoint);
+            _countriesPathFinder = CountryListService.CreateCountryListSerivce(countriesGraph, countriesConfig.StartingPoint);
 
         }
 

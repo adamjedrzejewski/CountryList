@@ -15,13 +15,29 @@ namespace CountryList.Services
             _shortestPaths = shortestPathsDictionary;
         }
 
+        /// <summary>
+        /// Check if country exists
+        /// </summary>
+        /// <param name="countryCode"></param>
+        /// <returns>true if exists false otherwise</returns>
         public Task<bool> CountryExistsAsync(string countryCode)
             => Task.FromResult(_shortestPaths.ContainsKey(countryCode));
 
-        public Task<List<string>> GetCountryListAsync(string countryCode)
-            => Task.FromResult(_shortestPaths[countryCode]);
+        /// <summary>
+        /// Get list of countries you need to travel throught to get to destination.
+        /// </summary>
+        /// <param name="destinationCountryCode"></param>
+        /// <returns>List of country codes</returns>
+        public Task<List<string>> GetCountryListAsync(string destinationCountryCode)
+            => Task.FromResult(_shortestPaths[destinationCountryCode]);
 
-        public static CountryListService CreateCountriesPathFinder(CountriesGraph countriesGraph, string startingPointCode)
+        /// <summary>
+        /// Create new country list serivce
+        /// </summary>
+        /// <param name="countriesGraph"></param>
+        /// <param name="startingPointCode"></param>
+        /// <returns>new CountryListService</returns>
+        public static CountryListService CreateCountryListSerivce(CountriesGraph countriesGraph, string startingPointCode)
         {
             if (!countriesGraph.CountryExists(startingPointCode))
             {
@@ -54,7 +70,6 @@ namespace CountryList.Services
             }
 
             var paths = new Dictionary<string, List<string>>();
-
             foreach (var vertex in countriesGraph.AdjacencyList.Keys)
             {
                 var path = new List<string> { };
