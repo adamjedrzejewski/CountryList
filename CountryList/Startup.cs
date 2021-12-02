@@ -29,6 +29,11 @@ namespace CountryList
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Description does not mention how country data should be represented.
+            // Storing it in a config file and generating path finding information from it
+            // is suitable for data of small size.
+            // For data of greater size, path finding information should be generated ahead of time
+            // and loaded on program startup.
             var countriesConfig = JsonSerializer.Deserialize<CountriesConfiguration>(
                 File.ReadAllText("countries.json")
             );

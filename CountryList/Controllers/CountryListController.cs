@@ -37,6 +37,7 @@ namespace CountryList.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetCountryListAsync(string destinationCountryCode)
         {
+            // HTTP request method is not mentioned in the description, GET is most suitable
             var exists = await _countryListService.CountryExistsAsync(destinationCountryCode);
             if (!exists)
             {

@@ -51,6 +51,8 @@ namespace CountryList.Services
 
         private static Dictionary<string, List<string>> GetShortestPathsDictionary(CountriesGraph countriesGraph, string startingPointCode)
         {
+            // Country graph must be connected, unconnected graph is treated as invalid data.
+            // The program will crash in such case.
             var previous = new Dictionary<string, string>();
 
             var queue = new Queue<string>();
