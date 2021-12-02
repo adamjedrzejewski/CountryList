@@ -1,0 +1,46 @@
+{
+  "startingPoint": "USA",
+  "countries": [
+    {
+      "code": "CAN",
+      "neighbours": [ "USA" ]
+    },
+    {
+      "code": "USA",
+      "neighbours": [ "CAN", "MEX" ]
+    },
+    {
+      "code": "MEX",
+      "neighbours": [ "USA", "GTM", "BLZ" ]
+    },
+    {
+      "code": "BLZ",
+      "neighbours": [ "MEX", "GTM" ]
+    },
+    {
+      "code": "GTM",
+      "neighbours": [ "MEX", "BLZ", "SLV", "HND" ]
+    },
+    {
+      "code": "SLV",
+      "neighbours": [ "GTM", "HND" ]
+    },
+    {
+      "code": "HND",
+      "neighbours": [ "GTM", "SLV", "NIC" ]
+    },
+    {
+      "code": "NIC",
+      "neighbours": [ "HND", "CRI" ]
+    },
+    {
+      "code": "CRI",
+      "neighbours": [ "NIC", "PAN" ]
+    },
+    {
+      "code": "PAN",
+      "neighbours": [ "CRI" ]
+    }
+
+  ]
+}

@@ -1,9 +1,11 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31911.196
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountryList", "CountryList.csproj", "{566446F1-6B83-42F4-AECC-AE3C8D2F1CB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CountryList", "CountryList\CountryList.csproj", "{566446F1-6B83-42F4-AECC-AE3C8D2F1CB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountryListTest", "CountryListTest\CountryListTest.csproj", "{3DC57953-D9D5-4BD8-9427-6E32DCF3695B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{566446F1-6B83-42F4-AECC-AE3C8D2F1CB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{566446F1-6B83-42F4-AECC-AE3C8D2F1CB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{566446F1-6B83-42F4-AECC-AE3C8D2F1CB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DC57953-D9D5-4BD8-9427-6E32DCF3695B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DC57953-D9D5-4BD8-9427-6E32DCF3695B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DC57953-D9D5-4BD8-9427-6E32DCF3695B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DC57953-D9D5-4BD8-9427-6E32DCF3695B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

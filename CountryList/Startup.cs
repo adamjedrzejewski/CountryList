@@ -1,3 +1,4 @@
+using CountryList.Countries;
 using CountryList.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -9,7 +10,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace CountryList
@@ -26,8 +29,16 @@ namespace CountryList
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var countriesConfig = JsonSerializer.Deserialize<CountriesConfiguration>(
+                File.ReadAllText("countries.json")
+            );
+            var countriesGraph = CountriesGraph.CreateCountriesGraph(countriesConfig);
+            var countriesPathFinder = CountryListService.CreateCountriesPathFinder(countriesGraph, countriesConfig.StartingPoint);
+
             services.AddControllers();
-            services.AddTransient<ICountryListService, CountryListService>();
+            services.AddTransient<ICountryListService, CountryListService>(
+                _ => countriesPathFinder
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,5 +60,6 @@ namespace CountryList
                 endpoints.MapControllers();
             });
         }
+
     }
 }
