@@ -59,10 +59,18 @@ namespace CountryList.Controllers
         /// <returns>Ok response with a number</returns>
         /// <response code="200">A number</response>
         [HttpGet]
-        [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
-        public ActionResult<int> GetNumber()
+        [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
+        public ActionResult<string> GetNumber()
         {
-            return Ok(0);
+             /*
+            "Visiting a URL in the browser should return the decimal number"
+            
+            "URL" is mentioned in regards to the root address of application.
+            While "browser" might point to assumption about client type, there is no information
+            for backing up implementation where response is dependent on client type. 
+            There is no further information about what said number may represent, therefore any number will be used.
+            */
+            return Ok("0");
         }
 
     }
